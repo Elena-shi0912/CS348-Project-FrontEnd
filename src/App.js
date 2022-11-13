@@ -5,16 +5,20 @@ import Axios from "axios";
 function App() {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
-  let driver;
 
-  const submitUserApplication = () => {
+  const submitUserApplicationU = () => {
     Axios.post("http://localhost:3001/api/insert", 
               {userName: userName, 
               userEmail: userEmail,
-              asDriver: driver
-              }).then((response) => { console.log(response) });
-    window.location.href = "login.html";
-  };
+              isDriver: false
+              }).then((response) => { console.log(response) })};
+
+  const submitUserApplicationD = () => {
+    Axios.post("http://localhost:3001/api/insert", 
+              {userName: userName, 
+              userEmail: userEmail,
+              isDriver: true
+              }).then((response) => { console.log(response) })};
 
   return (
     <div className="App">
@@ -33,10 +37,8 @@ function App() {
                onChange = {(e) => {
                 setUserEmail(e.target.value);
                }} />
-        <label>Sign up as driver?</label>
-        <input type = "checkbox"
-                onChange = {driver = this}/>
-        <button onClick={submitUserApplication}>Submit</button>
+        <button onClick={submitUserApplicationU}>Submit As User</button>
+        <button onClick={submitUserApplicationD}>Submit As Driver</button>
         <hr/>
         <a href="../public/login.html"> Sign in if already has an account </a>
        </div>
