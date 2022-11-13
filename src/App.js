@@ -5,18 +5,22 @@ import Axios from "axios";
 function App() {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
+  let driver;
 
   const submitUserApplication = () => {
     Axios.post("http://localhost:3001/api/insert", 
               {userName: userName, 
               userEmail: userEmail,
+              asDriver: driver
               }).then((response) => { console.log(response) });
+    window.location.href = "login.html";
   };
 
   return (
     <div className="App">
-      <h1>CS348 Project</h1>
-      <label>Hello world!</label>
+      <h1>Account Sign Up</h1>
+        <label>Please consider a user name and enter your email</label>
+        <hr/>
       <div></div>
       <div className="ApplicationForm">
         <label>User Name:</label>
@@ -29,8 +33,12 @@ function App() {
                onChange = {(e) => {
                 setUserEmail(e.target.value);
                }} />
-
+        <label>Sign up as driver?</label>
+        <input type = "checkbox"
+                onChange = {driver = this}/>
         <button onClick={submitUserApplication}>Submit</button>
+        <hr/>
+        <a href="../public/login.html"> Sign in if already has an account </a>
        </div>
     </div>
   );
