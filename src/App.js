@@ -1,8 +1,7 @@
 import React, {useState,  useEffect} from "react";
+import { Link } from "react-router-dom";
 import './App.css';
 import Axios from "axios";
-import ReactDOM from 'react-dom/client';
-import Login from './login.js';
 export default App;
 
 function App() {
@@ -14,9 +13,8 @@ function App() {
               {userEmail: userEmail, 
               password: password,
               isDriver: false
-              })
-              window.location.href = "../public/login.html"
-              console.log("success")};
+              }).then((response) => { console.log(response) })
+            window.location.href="login"};
 
   const submitUserApplicationD = () => {
     Axios.post("http://localhost:3001/api/insert", 
@@ -24,7 +22,7 @@ function App() {
               password: password,
               isDriver: true
               }).then((response) => { console.log(response) })
-              window.location.href = "../public/login.html"};
+              window.location.href="login"};
 
   return (
     <div className="App">
@@ -43,11 +41,11 @@ function App() {
                onChange = {(e) => {
                 setPassword(e.target.value);
                }} />
-        <button onClick={submitUserApplicationU}>Submit As User</button>
+        <button type='button' onClick={submitUserApplicationU}>Submit As User</button>
         <hr/>
-        <button onClick={submitUserApplicationD}>Submit As Driver</button>
+        <button type='button' onClick={submitUserApplicationD}>Submit As Driver</button>
         <hr/>
-        <a href="../public/login.html"> Sign in if already has an account </a>
+        <Link to="login">Sign in if have an account</Link>
        </div>
     </div>
   );

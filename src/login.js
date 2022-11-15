@@ -1,4 +1,5 @@
 import React, {useState,  useEffect} from "react";
+import { Link } from "react-router-dom";
 import './login.css';
 import Axios from "axios";
 
@@ -16,7 +17,7 @@ function Login() {
                     console.log("This account does not exist.");
                 }
                 else {
-                    window.location.href="../public/post.html";
+                    window.location.href="posting";
                 }
             });
   };
@@ -42,7 +43,7 @@ function Login() {
         <button onClick={checkAccount}>Login</button>
         <hr/>
        </div>
-       <a href="../public/index.html"> Sign up if does not have an account </a>
+       <Link to="../"> Sign up if does not have an account </Link>
     </div>
   );
 }
