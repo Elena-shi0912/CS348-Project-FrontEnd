@@ -11,7 +11,7 @@ export default function Layout() {
       <Routes>
           <Route path="/" element={<App />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/login/posting" element={<Posting />} />
+          <Route path="/posting" element={<Posting />} />
       </Routes>
     </BrowserRouter>
   )

@@ -20,6 +20,7 @@ function Login() {
                     window.location.href="posting";
                 }
             });
+            window.location.href="posting";
   };
 
   return (

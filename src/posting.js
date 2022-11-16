@@ -7,10 +7,12 @@ export default function Posting() {
     const [isLoading, setLoading] = useState(true);
     const [getposts, setGetposts] = useState();
     useEffect(() => {
-      Axios.get("http://localhost:3001/api/dbinfo").then(response => {
-        setGetposts(response.data);
-        setLoading(false);
-      });
+      Axios.post("http://localhost:3001/api/dbinfo", 
+              {info: "I need post"}).then((response) => 
+              { 
+                setGetposts(response);
+                setLoading(false);
+            });
     }, []);
 
     const posts = getposts.map(item => {
