@@ -4,9 +4,14 @@ import Axios from "axios";
 import Post from "./post.js";
 
 export default function Posting() {
-    let getposts;
-    Axios.post("http://localhost:3001/api/dbinfo", 
-    {info: "I need post"}).then((response) => { getposts=response })
+    const [isLoading, setLoading] = useState(true);
+    const [getposts, setGetposts] = useState();
+    useEffect(() => {
+      Axios.get("http://localhost:3001/api/dbinfo").then(response => {
+        setGetposts(response.data);
+        setLoading(false);
+      });
+    }, []);
 
     const posts = getposts.map(item => {
       return (
@@ -21,6 +26,10 @@ export default function Posting() {
         />
       )
     })
+
+    if (isLoading) {
+      return <div className="loading">Loading...</div>;
+    }
 
   return (
     <div className="posting">
