@@ -6,6 +6,11 @@ import Axios from "axios";
 function Login() {
   const [userEmail, checkUserEmail] = useState("");
   const [password, checkPassword] = useState("");
+  const [checked, setChecked] = React.useState(false);
+
+  const handleChange = () => {
+    setChecked(!checked);
+  };
 
   const checkAccount = () => {
     Axios.post("http://localhost:3001/api/check", 
@@ -40,11 +45,15 @@ function Login() {
                onChange = {(e) => {
                 checkPassword(e.target.value);
                }} />
+        <label class="container"> Remember Me
+          <input type="checkbox" checked={checked} onChange={setChecked}/>
+        <span class="checkmark"></span>
+        </label>
 
         <button onClick={checkAccount}>Login</button>
         <hr/>
-       </div>
        <Link to="../"> Sign up if does not have an account </Link>
+       </div>
     </div>
   );
 }
