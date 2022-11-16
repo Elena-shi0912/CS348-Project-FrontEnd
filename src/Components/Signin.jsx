@@ -29,7 +29,7 @@ function Signin() {
                         </Link>
                     </li>
                     <li class="nav-item">
-                        <Link to="/signup" class="nav-link">
+                        <Link to="/signin" class="nav-link">
                             Sign in
                         </Link>
                     </li>
