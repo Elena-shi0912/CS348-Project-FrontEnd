@@ -3,7 +3,7 @@ import './posting.css';
 import Axios from "axios";
 import Post from "./post.js";
 
-function Posting() {
+export default function Posting() {
     let getposts;
     Axios.post("http://localhost:3001/api/dbinfo", 
     {info: "I need post"}).then((response) => { getposts=response })
@@ -28,5 +28,3 @@ function Posting() {
     </div>
   );
 }
-
-export default Posting

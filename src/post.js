@@ -1,7 +1,7 @@
 import React, {useState,  useEffect} from "react";
 import './post.css';
 
-function Post(props) {
+export default function Post(props) {
 
   return (
     <div className="post">
@@ -13,5 +13,3 @@ function Post(props) {
     </div>
   );
 }
-
-export default Post;
