@@ -6,14 +6,12 @@ import Post from "./post.js";
 export default function Posting() {
     const [isLoading, setLoading] = useState(true);
     const [getposts, setGetposts] = useState();
-    useEffect(() => {
-      Axios.post("http://localhost:3001/api/dbinfo", 
+    Axios.post("http://localhost:3001/api/dbinfo", 
               {info: "I need post"}).then((response) => 
               { 
                 setGetposts(response);
                 setLoading(false);
             });
-    }, []);
 
     const posts = getposts.map(item => {
       return (
