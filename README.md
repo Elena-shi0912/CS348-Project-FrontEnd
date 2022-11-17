@@ -28,6 +28,8 @@ You may also see any lint errors in the console.
 
 5. Driver can view his/her own post
 
+ALL these features are implemented under src folder in Frontend repo
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
