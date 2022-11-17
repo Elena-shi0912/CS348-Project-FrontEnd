@@ -4,7 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+After cloning the project directory. In the project directory, you can run:
+
+### `npm install`
+Install all the required dependencies/packages for this project
 
 ### `npm start`
 
@@ -13,6 +16,17 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+### `Features fully developed so far`
+1. Create User/Driver account and sign up
+
+2. Sign in with User email and password
+
+3. Show/Hide password while signing up or signing in
+
+4. User can view all the available posting
+
+5. Driver can view his/her own post
 
 ### `npm test`
 
