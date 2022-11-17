@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import Axios from "axios";
 import "./Signin.css";
-class App extends Component {
+class Signin extends Component {
     state = { userEmail: "", password: "" };
 
     constructor() {
@@ -62,7 +62,7 @@ class App extends Component {
                         className="btn btn-primary"
                         onClick={this.checkAccount}
                     >
-                        Sign up
+                        Sign in
                     </button>
                 </div>
             </div>
@@ -70,4 +70,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default Signin;
