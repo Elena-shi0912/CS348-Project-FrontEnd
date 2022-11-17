@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import Axios from "axios";
 import "./Signin.css";
-class App extends Component {
+class Signin extends Component {
     state = { userEmail: "", password: "" };
 
     constructor() {
@@ -31,7 +31,7 @@ class App extends Component {
                 <div className="ApplicationForm">
                     <ul className="nav justify-content-center">
                         <li className="nav-item">
-                            <Link to="/" className="nav-link">
+                            <Link to="/signup" className="nav-link">
                                 Sign up
                             </Link>
                         </li>
@@ -70,4 +70,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default Signin;

@@ -19,7 +19,7 @@ function Login() {
         }).then((response) => {
             if (response == false) {
                 console.log("This account does not exist.");
-                window.location.href = "../";
+                window.location.href = "../signup";
             } else {
                 window.location.href = "posting";
             }

@@ -33,7 +33,7 @@ class Signup extends Component {
                 <div className="ApplicationForm">
                     <ul className="nav justify-content-center">
                         <li className="nav-item">
-                            <Link to="/" className="nav-link">
+                            <Link to="/signup" className="nav-link">
                                 Sign up
                             </Link>
                         </li>
@@ -94,6 +94,7 @@ class Signup extends Component {
                             Driver
                         </label>
                     </div>
+                    <hr/>
                     <button
                         type="button"
                         className="btn btn-primary"
