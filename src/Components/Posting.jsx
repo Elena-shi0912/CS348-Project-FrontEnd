@@ -43,6 +43,5 @@ export default function Posting() {
         );
     });
 
-    return;
-    <div className="posting"></div>;
+    return <div className="posting"></div>;
 }
