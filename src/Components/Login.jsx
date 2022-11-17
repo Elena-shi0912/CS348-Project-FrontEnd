@@ -19,11 +19,11 @@ function Login() {
         }).then((response) => {
             if (response == false) {
                 console.log("This account does not exist.");
+                window.location.href = "../";
             } else {
                 window.location.href = "posting";
             }
         });
-        window.location.href = "posting";
     };
 
     return (
@@ -62,7 +62,6 @@ function Login() {
 
                 <button onClick={checkAccount}>Login</button>
                 <hr />
-                <Link to="../"> Sign up if does not have an account </Link>
             </div>
         </div>
     );
