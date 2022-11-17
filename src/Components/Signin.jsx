@@ -22,7 +22,6 @@ class Signin extends Component {
                 window.location.href = "posting";
             }
         });
-        window.location.href = "posting";
     }
 
     render() {
