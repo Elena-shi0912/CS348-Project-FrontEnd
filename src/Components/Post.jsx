@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Post.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 export default function Post(props) {
     return (
-        <div className="post">
+        <div>
             <h4>{props.post_id}</h4>
             <h2>
                 From {props.pickup_location} to {props.dropoff_location} at{" "}

@@ -5,7 +5,16 @@ import Post from "./Post.jsx";
 
 export default function Posting() {
     const [isLoading, setLoading] = useState(true);
-    const [getposts, setGetposts] = useState();
+    const [getposts, setGetposts] = useState([
+        {
+            pickup_location: "Waterloo",
+            dropoff_location: "Toronto",
+            pickup_time: "2022/11/16",
+            available_seats: "4",
+            price_per_seat: "40",
+            additional_info: "",
+        },
+    ]);
     const handleSubmit = (e) => {
         e.preventDefault();
         loadPosts();
@@ -34,9 +43,6 @@ export default function Posting() {
         );
     });
 
-    if (isLoading) {
-        return <div className="loading">Loading...</div>;
-    }
-
-    return <div className="posting">{posts}</div>;
+    return;
+    <div className="posting"></div>;
 }
