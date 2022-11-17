@@ -3,15 +3,20 @@ import { Link } from "react-router-dom";
 import "./Signup.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Axios from "axios";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+const eye = <FontAwesomeIcon icon={faEye} />;
 class Signup extends Component {
     state = { userEmail: "", password: "", isDriver: false, 
-              userName: "", phoneNumber: "" };
+              userName: "", phoneNumber: "", passwordShown: false };
 
 
     constructor() {
         super();
         this.handleRadioButton = this.handleRadioButton.bind(this);
         this.submitUserApplication = this.submitUserApplication.bind(this);
+        this.togglePasswordVisibility = this.togglePasswordVisibility.bind(this);
     }
 
     submitUserApplication() {
@@ -30,6 +35,10 @@ class Signup extends Component {
     handleRadioButton() {
         this.setState({ isDriver: !this.state.isDriver });
     }
+
+    togglePasswordVisibility() {
+        this.setState({ passwordShown: !this.state.passwordShown });
+    };
 
     render() {
         return (
@@ -61,13 +70,16 @@ class Signup extends Component {
                         }}
                     />
                     <input
-                        type="password"
+                        type={this.state.passwordShown ? "text" : "password"}
                         name="password"
                         placeholder="Password"
                         onChange={(e) => {
                             this.state.password = e.target.value;
                         }}
                     />
+                    <i
+                    onClick={this.togglePasswordVisibility}
+                    >{eye}</i>
                     <div
                         className="btn-group"
                         role="group"

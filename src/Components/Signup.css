@@ -59,3 +59,13 @@ h1{
     padding-top: 10px;
     padding-bottom: 8px;
 }
+
+i {
+    position: absolute;
+    top: 46%;
+    right: 35%;
+  }
+  i:hover {
+    color: #00fcb6;
+    cursor: pointer;
+}

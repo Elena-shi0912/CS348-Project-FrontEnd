@@ -1,1 +1,9 @@
-
+i {
+    position: absolute;
+    top: 29%;
+    right: 35%;
+  }
+  i:hover {
+    color: #00fcb6;
+    cursor: pointer;
+}

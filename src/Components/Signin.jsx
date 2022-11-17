@@ -3,12 +3,17 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import Axios from "axios";
 import "./Signin.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+const eye = <FontAwesomeIcon icon={faEye} />;
 class Signin extends Component {
-    state = { userEmail: "", password: "" };
+    state = { userEmail: "", password: "", passwordShown: false };
 
     constructor() {
         super();
         this.checkAccount = this.checkAccount.bind(this);
+        this.togglePasswordVisibility = this.togglePasswordVisibility.bind(this);
     }
 
     checkAccount() {
@@ -24,6 +29,10 @@ class Signin extends Component {
         });
     }
 
+    togglePasswordVisibility() {
+        this.setState({ passwordShown: !this.state.passwordShown });
+    };
+
     render() {
         return (
             <div className="App">
@@ -38,13 +47,16 @@ class Signin extends Component {
                         }}
                     />
                     <input
-                        type="password"
+                        type={this.state.passwordShown ? "text" : "password"}
                         name="password"
                         placeholder="Password"
                         onChange={(e) => {
                             this.state.password = e.target.value;
                         }}
                     />
+                    <i
+                    onClick={this.togglePasswordVisibility}
+                    >{eye}</i>
                     <button
                         type="button"
                         className="btn btn-primary"
