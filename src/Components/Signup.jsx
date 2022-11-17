@@ -4,7 +4,9 @@ import "./Signup.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Axios from "axios";
 class Signup extends Component {
-    state = { userEmail: "", password: "", isDriver: false };
+    state = { userEmail: "", password: "", isDriver: false, 
+              userName: "", phoneNumber: "" };
+
 
     constructor() {
         super();
@@ -17,6 +19,8 @@ class Signup extends Component {
             userEmail: this.state.userEmail,
             password: this.state.password,
             isDriver: this.state.isDriver,
+            userName: this.state.userName,
+            phoneNumber: this.state.phoneNumber
         }).then((response) => {
             console.log(response);
         });
@@ -31,24 +35,29 @@ class Signup extends Component {
         return (
             <div className="App">
                 <div className="ApplicationForm">
-                    <ul className="nav justify-content-center">
-                        <li className="nav-item">
-                            <Link to="/signup" className="nav-link">
-                                Sign up
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/signin" className="nav-link">
-                                Sign in
-                            </Link>
-                        </li>
-                    </ul>
+                    <h1>Sign Up</h1>
                     <input
                         type="text"
                         name="userEmail"
                         placeholder="Email address"
                         onChange={(e) => {
                             this.state.userEmail = e.target.value;
+                        }}
+                    />
+                    <input
+                        type="text"
+                        name="userName"
+                        placeholder="User Name"
+                        onChange={(e) => {
+                            this.state.userName = e.target.value;
+                        }}
+                    />
+                    <input
+                        type="text"
+                        name="phoneNumber"
+                        placeholder="Phone Number"
+                        onChange={(e) => {
+                            this.state.phoneNumber = e.target.value;
                         }}
                     />
                     <input
@@ -103,6 +112,9 @@ class Signup extends Component {
                         Sign up
                     </button>
                 </div>
+                <p className="forgot-password text-right">
+                        Already registered <a href="/signin">Sign in?</a>
+                </p>
             </div>
         );
     }

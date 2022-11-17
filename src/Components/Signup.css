@@ -21,7 +21,7 @@ input[type="password"]:focus {
 }
 
 .App {
-    padding-top: 250px;
+    padding-top: 100px;
     margin: 0;
     background-color: aliceblue;
     height: 100vh;
@@ -33,5 +33,29 @@ input[type="password"]:focus {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
+    font-size: 20px;
+}
+
+h1{
+    font-weight: bold;
+    font-family: Georgia;
+    padding-bottom: 25px;
+    color: #2d2d2d
+}
+
+.forgot-password,
+.forgot-password a{
+    text-align:center;
+    font-size: 15px;
+    padding-top: 10px;
+    color:#7f7d7d;
+    margin:0
+}
+.forgot-password a {
+    color: #167bff
+}
+
+.btn-group{
+    padding-top: 10px;
+    padding-bottom: 8px;
 }

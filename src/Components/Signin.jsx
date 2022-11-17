@@ -28,18 +28,7 @@ class Signin extends Component {
         return (
             <div className="App">
                 <div className="ApplicationForm">
-                    <ul className="nav justify-content-center">
-                        <li className="nav-item">
-                            <Link to="/signup" className="nav-link">
-                                Sign up
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/signin" className="nav-link">
-                                Sign in
-                            </Link>
-                        </li>
-                    </ul>
+                   <h1>Sign in</h1>
                     <input
                         type="text"
                         name="userEmail"
@@ -64,6 +53,9 @@ class Signin extends Component {
                         Sign in
                     </button>
                 </div>
+                <p className="forgot-password text-right">
+                    Don't have account yet <a href="/signup">Sign up?</a>
+                </p>
             </div>
         );
     }
