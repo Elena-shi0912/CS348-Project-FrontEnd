@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Full-width input fields */
+input[type="text"],
+input[type="password"] {
+    width: 25%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    font-size: 20px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.App {
+    padding-top: 100px;
+    margin: 0;
+    background-color: aliceblue;
+    height: 100vh;
+    width: 100vw;
+}
+
+.ApplicationForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+h1{
+    font-weight: bold;
+    font-family: Georgia;
+    padding-bottom: 25px;
+    color: #2d2d2d
+}
+
+.forgot-password,
+.forgot-password a{
+    text-align:center;
+    font-size: 15px;
+    padding-top: 10px;
+    color:#7f7d7d;
+    margin:0
+}
+.forgot-password a {
+    color: #167bff
+}
+
+.btn-group{
+    padding-top: 10px;
+    padding-bottom: 8px;
+}
+
+i {
+    position: absolute;
+    top: 56%;
+    right: 35%;
+  }
+i:hover {
+    color: #00fcb6;
+    cursor: pointer;
+}
