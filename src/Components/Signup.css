@@ -62,10 +62,10 @@ h1{
 
 i {
     position: absolute;
-    top: 46%;
+    top: 56%;
     right: 35%;
   }
-  i:hover {
+i:hover {
     color: #00fcb6;
     cursor: pointer;
 }

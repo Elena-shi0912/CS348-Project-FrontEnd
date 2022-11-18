@@ -54,9 +54,11 @@ class Signin extends Component {
                             this.state.password = e.target.value;
                         }}
                     />
+                    <div className="icon">
                     <i
                     onClick={this.togglePasswordVisibility}
                     >{eye}</i>
+                    </div>
                     <button
                         type="button"
                         className="btn btn-primary"
