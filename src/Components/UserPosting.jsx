@@ -101,13 +101,13 @@ export default function UserPosting() {
                                 <a
                                     class="nav-link active"
                                     aria-current="page"
-                                    href="#"
+                                    href="/userPosting"
                                 >
                                     Home
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/reservation">
                                     My Reservation
                                 </a>
                             </li>
@@ -117,20 +117,6 @@ export default function UserPosting() {
                                 </a>
                             </li>
                         </ul>
-                        <form class="d-flex" role="search">
-                            <input
-                                class="form-control me-2"
-                                type="search"
-                                placeholder="Search"
-                                aria-label="Search"
-                            />
-                            <button
-                                class="btn btn-outline-success"
-                                type="submit"
-                            >
-                                Search
-                            </button>
-                        </form>
                     </div>
                 </div>
             </nav>
@@ -227,6 +213,7 @@ export default function UserPosting() {
                             available_seats={item.available_seats}
                             price_per_seat={item.price_per_seat}
                             additional_info={item.additional_info}
+                            book={true}
                         />
                     );
                 })}

@@ -8,9 +8,34 @@ export default function Post(props) {
         Axios.post("http://localhost:3001/api/reserve", {
             post_id: props.post_id,
         }).then((response) => {
-            alert(response);
+            alert(response.data);
             window.location.reload(false);
         });
+    }
+
+    function cancel() {
+        Axios.post("http://localhost:3001/api/cancel", {
+            post_id: props.post_id,
+        }).then((response) => {
+            alert(response.data);
+            window.location.reload(false);
+        });
+    }
+
+    function button() {
+        if (props.book == true) {
+            return (
+                <a onClick={book} class="btn btn-primary">
+                    Book Now!
+                </a>
+            );
+        } else {
+            return (
+                <a onClick={cancel} class="btn btn-danger">
+                    Cancel Reservation
+                </a>
+            );
+        }
     }
 
     return (
@@ -29,9 +54,7 @@ export default function Post(props) {
                         {props.price_per_seat} each
                     </p>
                     <p class="card-text">{props.additional_info}</p>
-                    <a onClick={book()} class="btn btn-primary">
-                        Book Now!
-                    </a>
+                    {button()}
                 </div>
             </div>
             <h1 />
