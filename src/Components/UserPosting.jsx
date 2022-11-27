@@ -56,7 +56,7 @@ export default function UserPosting() {
             setGetposts(response.data);
             setLoading(false);
         });
-    }, []);
+    }, [from, to, sortBy, order]);
 
     function getFromList() {
         var fromArray = getposts.map((object) => object.pickup_location);
@@ -132,7 +132,6 @@ export default function UserPosting() {
                             </button>
                         </form>
                     </div>
-                    Choose
                 </div>
             </nav>
             <h1 />
@@ -155,7 +154,13 @@ export default function UserPosting() {
                     </div>
                     <div class="col-md-5">
                         <label className="form-label">To</label>
-                        <select class="form-select" required>
+                        <select
+                            onChange={(e) => {
+                                setTo(e.target.value);
+                            }}
+                            class="form-select"
+                            required
+                        >
                             <option selected disabled value="">
                                 Choose...
                             </option>
@@ -173,7 +178,13 @@ export default function UserPosting() {
                 <div class="row g-3">
                     <div class="col-md-5">
                         <label className="form-label">Sort By</label>
-                        <select class="form-select" required>
+                        <select
+                            onChange={(e) => {
+                                setSortBy(e.target.value);
+                            }}
+                            class="form-select"
+                            required
+                        >
                             <option selected disabled value="">
                                 Choose...
                             </option>
@@ -184,7 +195,13 @@ export default function UserPosting() {
                     </div>
                     <div class="col-md-5">
                         <label className="form-label">Order</label>
-                        <select class="form-select" required>
+                        <select
+                            onChange={(e) => {
+                                setOrder(e.target.value);
+                            }}
+                            class="form-select"
+                            required
+                        >
                             <option selected disabled value="">
                                 Choose...
                             </option>

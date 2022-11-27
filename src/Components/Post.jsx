@@ -1,8 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "./Post.css";
 import "bootstrap/dist/css/bootstrap.css";
+import Axios from "axios";
 
 export default function Post(props) {
+    function book() {
+        Axios.post("http://localhost:3001/api/reserve", {
+            userEmail: this.state.userEmail,
+            password: this.state.password,
+        }).then((response) => {
+            alert(response);
+            window.location.reload(false);
+        });
+    }
+
     return (
         <div className="post">
             <div class="card text-center">
@@ -19,7 +30,7 @@ export default function Post(props) {
                         {props.price_per_seat} each
                     </p>
                     <p class="card-text">{props.additional_info}</p>
-                    <a href="#" class="btn btn-primary">
+                    <a onClick={book()} class="btn btn-primary">
                         Book Now!
                     </a>
                 </div>
