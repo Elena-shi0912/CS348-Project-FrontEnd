@@ -6,8 +6,7 @@ import Axios from "axios";
 export default function Post(props) {
     function book() {
         Axios.post("http://localhost:3001/api/reserve", {
-            userEmail: this.state.userEmail,
-            password: this.state.password,
+            post_id: props.post_id,
         }).then((response) => {
             alert(response);
             window.location.reload(false);
