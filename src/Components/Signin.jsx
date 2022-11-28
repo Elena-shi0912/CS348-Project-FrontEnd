@@ -21,10 +21,12 @@ class Signin extends Component {
             userEmail: this.state.userEmail,
             password: this.state.password,
         }).then((response) => {
-            if (response == false) {
+            if (response.data === 'No account match') {
                 console.log("This account does not exist.");
             } else {
-                window.location.href = "posting";
+                if (response.data === 'User login') {
+                    window.location.href = "userposting";
+                }
             }
         });
     }

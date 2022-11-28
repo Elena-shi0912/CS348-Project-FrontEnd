@@ -7,33 +7,14 @@ import Post from "./Post.jsx";
 
 export default function UserPosting() {
     const [isLoading, setLoading] = useState(true);
-    const [getposts, setGetposts] = useState([
-        {
-            post_id: "",
-            pickup_location: "Toronto",
-            dropoff_location: "Waterloo",
-            pickup_time: "2022/10/22 10:00",
-            available_seats: "4",
-            price_per_seat: "10000",
-            additional_info: "",
-        },
-        {
-            post_id: "",
-            pickup_location: "Waterloo",
-            dropoff_location: "Vancouver",
-            pickup_time: "2022/10/22 3:00",
-            available_seats: "4",
-            price_per_seat: "10000",
-            additional_info: "",
-        },
-    ]);
+    const [getposts, setGetposts] = useState([]);
 
     function onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
     }
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/api/reserveInfo").then((response) => {
+        Axios.post("http://localhost:3001/api/reserveInfo").then((response) => {
             setGetposts(response.data);
             setLoading(false);
         });

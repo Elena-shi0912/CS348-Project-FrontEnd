@@ -11,35 +11,7 @@ export default function UserPosting() {
     const [sortBy, setSortBy] = useState("");
     const [order, setOrder] = useState("");
     const [isLoading, setLoading] = useState(true);
-    const [getposts, setGetposts] = useState([
-        {
-            post_id: "",
-            pickup_location: "Toronto",
-            dropoff_location: "Waterloo",
-            pickup_time: "2022/10/22 10:00",
-            available_seats: "4",
-            price_per_seat: "10000",
-            additional_info: "",
-        },
-        {
-            post_id: "",
-            pickup_location: "Waterloo",
-            dropoff_location: "Vancouver",
-            pickup_time: "2022/10/22 3:00",
-            available_seats: "4",
-            price_per_seat: "10000",
-            additional_info: "",
-        },
-        {
-            post_id: "",
-            pickup_location: "Waterloo",
-            dropoff_location: "Vancouver",
-            pickup_time: "2022/10/22 3:00",
-            available_seats: "4",
-            price_per_seat: "10000",
-            additional_info: "",
-        },
-    ]);
+    const [getposts, setGetposts] = useState([]);
 
     function onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
@@ -124,7 +96,7 @@ export default function UserPosting() {
             <div className="posting">
                 <div class="row g-3">
                     <div class="col-md-5">
-                        <label className="form-label">From</label>
+                        <label className="fw-bold fs-5"> From</label>
                         <select
                             onChange={(e) => {
                                 setFrom(e.target.value);
@@ -139,7 +111,7 @@ export default function UserPosting() {
                         </select>
                     </div>
                     <div class="col-md-5">
-                        <label className="form-label">To</label>
+                        <label className="fw-bold fs-5">To</label>
                         <select
                             onChange={(e) => {
                                 setTo(e.target.value);
@@ -163,7 +135,7 @@ export default function UserPosting() {
                 <h1 />
                 <div class="row g-3">
                     <div class="col-md-5">
-                        <label className="form-label">Sort By</label>
+                        <label className="fw-bold fs-5">Sort By</label>
                         <select
                             onChange={(e) => {
                                 setSortBy(e.target.value);
@@ -180,7 +152,7 @@ export default function UserPosting() {
                         </select>
                     </div>
                     <div class="col-md-5">
-                        <label className="form-label">Order</label>
+                        <label className="fw-bold fs-5">Order</label>
                         <select
                             onChange={(e) => {
                                 setOrder(e.target.value);
