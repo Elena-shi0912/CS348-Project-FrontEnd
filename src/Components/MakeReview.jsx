@@ -1,11 +1,15 @@
 import React, { Component, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import { useLocation } from "react-router-dom";
 import "./MakeReview.css";
 import Axios from "axios";
 import Post from "./Post.jsx";
 
-export default function MakeReview() {
+export default function MakeReview(props) {
     const [comment, setComment] = useState("");
+    const location = useLocation();
+
+    console.log(location);
 
     return (
         <div>
@@ -61,13 +65,13 @@ export default function MakeReview() {
             <div className="Review">
                 <h1 />
                 <Post
-                    pickup_location={this.props.location.From}
-                    dropoff_location={this.props.location.To}
-                    pickup_time={this.props.location.Time}
-                    available_seats={this.props.location.Seats}
-                    price_per_seat={this.props.location.Price}
-                    additional_info={this.props.location.Info}
-                    post_id={this.props.location.id}
+                    pickup_location={props.pickup_location}
+                    dropoff_location={props.dropoff_location}
+                    pickup_time={"props.pickup_time"}
+                    available_seats={props.available_seats}
+                    price_per_seat={props.price_per_seat}
+                    additional_info={props.additional_info}
+                    post_id={props.post_id}
                     book={""}
                 />
                 <h1 />

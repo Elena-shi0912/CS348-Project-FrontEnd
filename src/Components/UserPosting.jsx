@@ -11,7 +11,35 @@ export default function UserPosting() {
     const [sortBy, setSortBy] = useState("");
     const [order, setOrder] = useState("");
     const [isLoading, setLoading] = useState(true);
-    const [getposts, setGetposts] = useState([]);
+    const [getposts, setGetposts] = useState([
+        {
+            post_id: "0",
+            pickup_location: "Toronto",
+            dropoff_location: "Waterloo",
+            pickup_time: "2022-11-29 11:00:00",
+            available_seats: "4",
+            price_per_seat: "100000",
+            additional_info: "",
+        },
+        {
+            post_id: "0",
+            pickup_location: "Markham",
+            dropoff_location: "Waterloo",
+            pickup_time: "2022-11-29 11:00:00",
+            available_seats: "4",
+            price_per_seat: "100000",
+            additional_info: "",
+        },
+        {
+            post_id: "0",
+            pickup_location: "Gulphe",
+            dropoff_location: "Kingston",
+            pickup_time: "2022-11-29 11:00:00",
+            available_seats: "4",
+            price_per_seat: "100000",
+            additional_info: "",
+        },
+    ]);
 
     function onlyUnique(value, index, self) {
         return self.indexOf(value) === index;

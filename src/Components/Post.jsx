@@ -42,13 +42,13 @@ export default function Post(props) {
                     to={{
                         pathname: "/makeReview",
                         state: {
-                            From: props.pickup_location,
-                            To: props.dropoff_location,
-                            Time: props.pickup_time,
-                            Seats: props.available_seats,
-                            Price: props.price_per_seat,
-                            Info: props.additional_info,
-                            id: props.post_id,
+                            pickup_location: props.pickup_location,
+                            dropoff_location: props.dropoff_location,
+                            pickup_time: props.pickup_time,
+                            available_seats: props.available_seats,
+                            price_per_seat: props.price_per_seat,
+                            additional_info: props.additional_info,
+                            post_id: props.post_id,
                         },
                     }}
                     class="btn btn-info"
