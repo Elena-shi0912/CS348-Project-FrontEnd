@@ -110,7 +110,6 @@ export default function DriverPosting() {
                         </label>
                         <input
                             type="datetime-local"
-                            value="2022-12-12T19:30"
                             min="2022-06-07T00:00"
                             max="2030-06-14T00:00"
                             class="form-control"
@@ -155,7 +154,7 @@ export default function DriverPosting() {
                     </div>
                     <div class="col-12">
                         <button
-                            onClick={submit()}
+                            onClick={submit}
                             type="submit"
                             class="btn btn-primary"
                         >

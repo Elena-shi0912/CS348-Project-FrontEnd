@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Post.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import Axios from "axios";
 
 export default function Post(props) {
+    const navigate = useNavigate();
+
     function book() {
         Axios.post("http://localhost:3001/api/reserve", {
             post_id: props.post_id,
@@ -23,6 +25,20 @@ export default function Post(props) {
         });
     }
 
+    const handleClick = () => {
+        navigate("/makeReview", {
+            state: {
+                pickup_location: props.pickup_location,
+                dropoff_location: props.dropoff_location,
+                pickup_time: props.pickup_time,
+                available_seats: props.available_seats,
+                price_per_seat: props.price_per_seat,
+                additional_info: props.additional_info,
+                post_id: props.post_id,
+            },
+        });
+    };
+
     function button() {
         if (props.button === "book") {
             return (
@@ -38,23 +54,22 @@ export default function Post(props) {
             );
         } else if (props.button === "review") {
             return (
-                <Link
-                    to={{
-                        pathname: "/makeReview",
-                        state: {
-                            pickup_location: props.pickup_location,
-                            dropoff_location: props.dropoff_location,
-                            pickup_time: props.pickup_time,
-                            available_seats: props.available_seats,
-                            price_per_seat: props.price_per_seat,
-                            additional_info: props.additional_info,
-                            post_id: props.post_id,
-                        },
-                    }}
+                <a
+                    // to="/makeReview"
+                    // state={{
+                    // pickup_location: props.pickup_location,
+                    // dropoff_location: props.dropoff_location,
+                    // pickup_time: props.pickup_time,
+                    // available_seats: props.available_seats,
+                    // price_per_seat: props.price_per_seat,
+                    // additional_info: props.additional_info,
+                    // post_id: props.post_id,
+                    // }}
+                    onClick={handleClick}
                     class="btn btn-info"
                 >
                     Add review
-                </Link>
+                </a>
             );
         }
     }

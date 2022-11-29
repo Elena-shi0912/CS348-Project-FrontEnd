@@ -5,11 +5,25 @@ import "./MakeReview.css";
 import Axios from "axios";
 import Post from "./Post.jsx";
 
-export default function MakeReview(props) {
+export default function MakeReview() {
     const [comment, setComment] = useState("");
+    const [rating, setRating] = useState(5);
     const location = useLocation();
+    const state = location.state;
 
     console.log(location);
+    console.log(state);
+
+    function submit() {
+        Axios.post("http://localhost:3001/api/addReview", {
+            post_id: state.post_id,
+            comment: comment,
+            rating: rating,
+        }).then((response) => {
+            alert(response.data);
+        });
+        window.location.href = "userReview";
+    }
 
     return (
         <div>
@@ -65,18 +79,18 @@ export default function MakeReview(props) {
             <div className="Review">
                 <h1 />
                 <Post
-                    pickup_location={props.pickup_location}
-                    dropoff_location={props.dropoff_location}
-                    pickup_time={"props.pickup_time"}
-                    available_seats={props.available_seats}
-                    price_per_seat={props.price_per_seat}
-                    additional_info={props.additional_info}
-                    post_id={props.post_id}
+                    pickup_location={state.pickup_location}
+                    dropoff_location={state.dropoff_location}
+                    pickup_time={state.pickup_time}
+                    available_seats={state.available_seats}
+                    price_per_seat={state.price_per_seat}
+                    additional_info={state.additional_info}
+                    post_id={state.post_id}
                     book={""}
                 />
                 <h1 />
                 <div class="row g-3">
-                    <div class="col-12">
+                    <div class="col-md-12">
                         <label for="inputPassword4" class="form-label">
                             Comment:
                         </label>
@@ -89,10 +103,29 @@ export default function MakeReview(props) {
                         ></textarea>
                     </div>
                     <div class="col-5">
-                        <div class="container">
-                            <span id="rateMe1"></span>
-                        </div>
-                        <script src="js/addons/rating.js"></script>
+                        <label for="customRange2" class="form-label">
+                            Rating
+                        </label>
+                        <input
+                            type="range"
+                            class="form-range"
+                            min="0"
+                            max="5"
+                            onChange={(e) => {
+                                setRating(e.target.value);
+                            }}
+                            id="customRange2"
+                        />
+                    </div>
+                    <div class="col-4"></div>
+                    <div class="col-3 d-md-flex justify-content-md-end">
+                        <button
+                            type="submit"
+                            onClick={submit}
+                            class="btn btn-primary"
+                        >
+                            Submit Review!
+                        </button>
                     </div>
                 </div>
             </div>
