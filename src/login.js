@@ -8,7 +8,7 @@ function Login() {
   const [password, checkPassword] = useState("");
 
   const checkAccount = () => {
-    Axios.post("http://localhost:3001/api/check", 
+    /*Axios.post("http://localhost:3001/api/check", 
               {userEmail: userEmail, 
               password: password,
               }).then((response) => 
@@ -19,7 +19,9 @@ function Login() {
                 else {
                     window.location.href="posting";
                 }
-            });
+            });*/
+            localStorage.setItem("email", userEmail);
+            localStorage.setItem("password", password);
             window.location.href="posting";
   };
 

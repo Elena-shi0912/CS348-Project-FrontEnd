@@ -5,11 +5,25 @@ export default function Post(props) {
 
   return (
     <div className="post">
-        <h4>{props.post_id}</h4>
-        <h2>From {props.pickup_location} to {props.dropoff_location} at {props.pickup_time.substring(0, 10)} {props.pickup_time.substring(11, 16)}</h2>
-        <h3>{props.available_seats} seats remain and ${props.price_per_seat} per seat</h3>
-        <h4>{props.additional_info}</h4>
-        <hr/>
+        <div class="card text-center">
+            <div class="card-header">
+                {props.pickup_time.substring(0, 10)}{" "}
+                {props.pickup_time.substring(11, 16)}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    {props.pickup_location} to {props.dropoff_location}
+                </h5>
+                <p class="card-text">
+                    {props.available_seats} seats available for $
+                    {props.price_per_seat} each
+                </p>
+                <p class="card-text">{props.additional_info}</p>
+                <a href="#" class="btn btn-primary">
+                        Book Now!
+                </a>
+            </div>
+        </div>
     </div>
-  );
+);
 }

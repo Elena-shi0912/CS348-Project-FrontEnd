@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from './App.js';
 import Login from './login.js';
 import Posting from './posting.js';
+import Profile from './profile.js';
 
 export default function Layout() {
   return (
@@ -12,6 +13,7 @@ export default function Layout() {
           <Route path="/" element={<App />} />
           <Route path="/login" element={<Login />} />
           <Route path="/posting" element={<Posting />} />
+          <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   )
