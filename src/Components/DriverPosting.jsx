@@ -12,9 +12,14 @@ export default function DriverPosting() {
     const [seats, setSeats] = useState("");
     const [price, setPrice] = useState("");
     const [info, setInfo] = useState("");
-    const [submit, setSubmit] = useState(0);
 
     useEffect(() => {
+        Axios.post("http://localhost::3001/api/dbinfo").then((response) => {
+            setGetposts(response.data);
+        });
+    }, []);
+
+    function submit() {
         Axios.post("http://localhost:3001/api/addPosting", {
             from: from,
             to: to,
@@ -26,10 +31,7 @@ export default function DriverPosting() {
         }).then((response) => {
             alert(response.data);
         });
-        Axios.post("http://localhost::3001/api/dbinfo").then((response) => {
-            setGetposts(response.data);
-        });
-    }, [submit]);
+    }
 
     return (
         <div className="main">
@@ -153,9 +155,7 @@ export default function DriverPosting() {
                     </div>
                     <div class="col-12">
                         <button
-                            onClick={(e) => {
-                                setSubmit(submit + 1);
-                            }}
+                            onClick={submit()}
                             type="submit"
                             class="btn btn-primary"
                         >
@@ -174,7 +174,7 @@ export default function DriverPosting() {
                             available_seats={item.available_seats}
                             price_per_seat={item.price_per_seat}
                             additional_info={item.additional_info}
-                            book={true}
+                            button={"book"}
                         />
                     );
                 })}

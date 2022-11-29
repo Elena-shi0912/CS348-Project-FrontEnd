@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./UserPosting.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Axios from "axios";
 import Post from "./Post.jsx";
 
-export default function UserPosting() {
-    const [isLoading, setLoading] = useState(true);
+export default function Review() {
     const [getposts, setGetposts] = useState([]);
 
     useEffect(() => {
@@ -22,11 +20,10 @@ export default function UserPosting() {
             currentdate.getMinutes() +
             ":" +
             currentdate.getSeconds();
-        Axios.post("http://localhost:3001/api/reserveInfo", {
+        Axios.post("http://localhost:3001/api/reviewInfo", {
             datetime: datetime,
         }).then((response) => {
             setGetposts(response.data);
-            setLoading(false);
         });
     }, []);
 
@@ -93,7 +90,7 @@ export default function UserPosting() {
                             available_seats={item.available_seats}
                             price_per_seat={item.price_per_seat}
                             additional_info={item.additional_info}
-                            button={"reserve"}
+                            button={"reservation"}
                         />
                     );
                 })}

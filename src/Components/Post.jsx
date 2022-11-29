@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Post.css";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import Axios from "axios";
 
@@ -23,17 +24,37 @@ export default function Post(props) {
     }
 
     function button() {
-        if (props.book == true) {
+        if (props.button === "book") {
             return (
                 <a onClick={book} class="btn btn-primary">
                     Book Now!
                 </a>
             );
-        } else {
+        } else if (props.button === "reserve") {
             return (
                 <a onClick={cancel} class="btn btn-danger">
                     Cancel Reservation
                 </a>
+            );
+        } else if (props.button === "review") {
+            return (
+                <Link
+                    to={{
+                        pathname: "/makeReview",
+                        state: {
+                            From: props.pickup_location,
+                            To: props.dropoff_location,
+                            Time: props.pickup_time,
+                            Seats: props.available_seats,
+                            Price: props.price_per_seat,
+                            Info: props.additional_info,
+                            id: props.post_id,
+                        },
+                    }}
+                    class="btn btn-info"
+                >
+                    Add review
+                </Link>
             );
         }
     }

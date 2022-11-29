@@ -1,37 +1,14 @@
-import React, { useState, useEffect } from "react";
-import "./UserPosting.css";
+import React, { Component, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import "./MakeReview.css";
 import Axios from "axios";
 import Post from "./Post.jsx";
 
-export default function UserPosting() {
-    const [isLoading, setLoading] = useState(true);
-    const [getposts, setGetposts] = useState([]);
-
-    useEffect(() => {
-        var currentdate = new Date();
-        var datetime =
-            currentdate.getFullYear() +
-            "-" +
-            (currentdate.getMonth() + 1) +
-            "-" +
-            currentdate.getDate() +
-            " " +
-            currentdate.getHours() +
-            ":" +
-            currentdate.getMinutes() +
-            ":" +
-            currentdate.getSeconds();
-        Axios.post("http://localhost:3001/api/reserveInfo", {
-            datetime: datetime,
-        }).then((response) => {
-            setGetposts(response.data);
-            setLoading(false);
-        });
-    }, []);
+export default function MakeReview() {
+    const [comment, setComment] = useState("");
 
     return (
-        <div className="main">
+        <div>
             <nav class="navbar navbar-expand-lg bg-light">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">
@@ -81,22 +58,39 @@ export default function UserPosting() {
                     </div>
                 </div>
             </nav>
-            <h1 />
-            <div className="posting">
-                {getposts.map((item) => {
-                    return (
-                        <Post
-                            post_id={item.post_id}
-                            pickup_location={item.pickup_location}
-                            dropoff_location={item.dropoff_location}
-                            pickup_time={item.pickup_time}
-                            available_seats={item.available_seats}
-                            price_per_seat={item.price_per_seat}
-                            additional_info={item.additional_info}
-                            button={"reserve"}
-                        />
-                    );
-                })}
+            <div className="Review">
+                <h1 />
+                <Post
+                    pickup_location={this.props.location.From}
+                    dropoff_location={this.props.location.To}
+                    pickup_time={this.props.location.Time}
+                    available_seats={this.props.location.Seats}
+                    price_per_seat={this.props.location.Price}
+                    additional_info={this.props.location.Info}
+                    post_id={this.props.location.id}
+                    book={""}
+                />
+                <h1 />
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="inputPassword4" class="form-label">
+                            Comment:
+                        </label>
+                        <textarea
+                            onChange={(e) => {
+                                setComment(e.target.value);
+                            }}
+                            rows="3"
+                            class="form-control"
+                        ></textarea>
+                    </div>
+                    <div class="col-5">
+                        <div class="container">
+                            <span id="rateMe1"></span>
+                        </div>
+                        <script src="js/addons/rating.js"></script>
+                    </div>
+                </div>
             </div>
         </div>
     );

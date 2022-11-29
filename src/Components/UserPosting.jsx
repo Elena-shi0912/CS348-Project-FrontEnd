@@ -18,8 +18,21 @@ export default function UserPosting() {
     }
 
     useEffect(() => {
-        console.log(from);
+        var currentdate = new Date();
+        var datetime =
+            currentdate.getFullYear() +
+            "-" +
+            (currentdate.getMonth() + 1) +
+            "-" +
+            currentdate.getDate() +
+            " " +
+            currentdate.getHours() +
+            ":" +
+            currentdate.getMinutes() +
+            ":" +
+            currentdate.getSeconds();
         Axios.post("http://localhost:3001/api/dbinfo", {
+            datetime: datetime,
             From: from,
             To: to,
             SortBy: sortBy,
@@ -81,6 +94,11 @@ export default function UserPosting() {
                             <li class="nav-item">
                                 <a class="nav-link" href="/reservation">
                                     My Reservation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/userReview">
+                                    Review
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -185,7 +203,7 @@ export default function UserPosting() {
                             available_seats={item.available_seats}
                             price_per_seat={item.price_per_seat}
                             additional_info={item.additional_info}
-                            book={true}
+                            button={"book"}
                         />
                     );
                 })}
