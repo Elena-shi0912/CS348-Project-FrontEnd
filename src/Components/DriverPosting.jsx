@@ -14,7 +14,23 @@ export default function DriverPosting() {
     const [info, setInfo] = useState("");
 
     useEffect(() => {
-        Axios.post("http://localhost::3001/api/dbinfo").then((response) => {
+        console.log("feteching posting")
+        var currentdate = new Date();
+        var datetime =
+            currentdate.getFullYear() +
+            "-" +
+            (currentdate.getMonth() + 1) +
+            "-" +
+            currentdate.getDate() +
+            " " +
+            currentdate.getHours() +
+            ":" +
+            currentdate.getMinutes() +
+            ":" +
+            currentdate.getSeconds();
+        Axios.post("http://localhost:3001/api/dbinfo", {
+            datetime:datetime
+        }).then((response) => {
             setGetposts(response.data);
         });
     }, []);
@@ -23,8 +39,7 @@ export default function DriverPosting() {
         Axios.post("http://localhost:3001/api/addPosting", {
             from: from,
             to: to,
-            date: time.substring(0, 9),
-            time: time.substring(11, 15),
+            datetime:time,
             seats: seats,
             price: price,
             info: info,
@@ -114,6 +129,7 @@ export default function DriverPosting() {
                             max="2030-06-14T00:00"
                             class="form-control"
                             onChange={(e) => {
+                                console.log(e.target.value)
                                 setTime(e.target.value);
                             }}
                         />

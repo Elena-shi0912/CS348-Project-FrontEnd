@@ -26,6 +26,8 @@ class Signin extends Component {
             } else {
                 if (response.data === 'User login') {
                     window.location.href = "userposting";
+                } else {
+                    window.location.href = "driverposting";
                 }
             }
         });

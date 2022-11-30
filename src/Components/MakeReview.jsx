@@ -15,10 +15,24 @@ export default function MakeReview() {
     console.log(state);
 
     function submit() {
+        var currentdate = new Date();
+        var datetime =
+            currentdate.getFullYear() +
+            "-" +
+            (currentdate.getMonth() + 1) +
+            "-" +
+            currentdate.getDate() +
+            " " +
+            currentdate.getHours() +
+            ":" +
+            currentdate.getMinutes() +
+            ":" +
+            currentdate.getSeconds();
         Axios.post("http://localhost:3001/api/addReview", {
             post_id: state.post_id,
             comment: comment,
             rating: rating,
+            datetime:datetime,
         }).then((response) => {
             alert(response.data);
         });
