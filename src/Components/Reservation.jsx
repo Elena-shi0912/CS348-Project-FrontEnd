@@ -101,7 +101,7 @@ export default function UserPosting() {
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/profile">
                                     Profile
                                 </a>
                             </li>

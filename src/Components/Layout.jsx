@@ -7,6 +7,7 @@ import Reservation from "./Reservation.jsx";
 import DriverPosting from "./DriverPosting";
 import Review from "./Review.jsx";
 import MakeReview from "./MakeReview.jsx";
+import PersonalProfile from "./Profile.jsx";
 
 export default function Layout() {
     return (
@@ -19,6 +20,7 @@ export default function Layout() {
                 <Route path="/driverPosting" element={<DriverPosting />} />
                 <Route path="/userReview" element={<Review />} />
                 <Route path="/makeReview" element={<MakeReview />} />
+                <Route path="/profile" element={<PersonalProfile />} />
             </Routes>
         </BrowserRouter>
     );

@@ -32,7 +32,7 @@ export default function MakeReview() {
             post_id: state.post_id,
             comment: comment,
             rating: rating,
-            datetime:datetime,
+            datetime: datetime,
         }).then((response) => {
             alert(response.data);
         });
@@ -82,7 +82,7 @@ export default function MakeReview() {
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/profile">
                                     Profile
                                 </a>
                             </li>

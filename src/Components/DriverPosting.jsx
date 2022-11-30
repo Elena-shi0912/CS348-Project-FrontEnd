@@ -14,7 +14,7 @@ export default function DriverPosting() {
     const [info, setInfo] = useState("");
 
     useEffect(() => {
-        console.log("feteching posting")
+        console.log("feteching posting");
         var currentdate = new Date();
         var datetime =
             currentdate.getFullYear() +
@@ -29,7 +29,7 @@ export default function DriverPosting() {
             ":" +
             currentdate.getSeconds();
         Axios.post("http://localhost:3001/api/dbinfo", {
-            datetime:datetime
+            datetime: datetime,
         }).then((response) => {
             setGetposts(response.data);
         });
@@ -39,7 +39,7 @@ export default function DriverPosting() {
         Axios.post("http://localhost:3001/api/addPosting", {
             from: from,
             to: to,
-            datetime:time,
+            datetime: time,
             seats: seats,
             price: price,
             info: info,
@@ -86,7 +86,7 @@ export default function DriverPosting() {
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/profile">
                                     Profile
                                 </a>
                             </li>
@@ -129,7 +129,7 @@ export default function DriverPosting() {
                             max="2030-06-14T00:00"
                             class="form-control"
                             onChange={(e) => {
-                                console.log(e.target.value)
+                                console.log(e.target.value);
                                 setTime(e.target.value);
                             }}
                         />
