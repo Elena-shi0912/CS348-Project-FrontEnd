@@ -14,12 +14,15 @@ import {
 import Axios from "axios";
 
 export default function PersonalProfile() {
-    const [profile, setProfile] = useState();
+    const [profile, setProfile] = useState({});
 
     useEffect(() => {
-        Axios.post("http://localhost:3001/api/accountinfo").then((response) => {
-            setProfile(response.date);
-        });
+        Axios.post("http://localhost:3001/api/accountinfo").then(
+            async (response) => {
+                const data = await response.data[0];
+                setProfile(data);
+            }
+        );
     }, []);
 
     function rating() {
@@ -121,7 +124,7 @@ export default function PersonalProfile() {
                                             fluid
                                         />
                                         <MDBTypography tag="h5">
-                                            {profile.name}
+                                            {profile.user_name}
                                         </MDBTypography>
                                         <MDBIcon far icon="edit mb-5" />
                                     </MDBCol>
@@ -151,7 +154,7 @@ export default function PersonalProfile() {
                                                         Phone
                                                     </MDBTypography>
                                                     <MDBCardText className="text-muted">
-                                                        {profile.phone}
+                                                        {profile.phone_number}
                                                     </MDBCardText>
                                                 </MDBCol>
                                             </MDBRow>
