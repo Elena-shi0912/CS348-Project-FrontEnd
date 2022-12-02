@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "bootstrap/dist/css/bootstrap.css";
 import Layout from "./Components/Layout.jsx";
 
 //ReactDOM.render(<App />, document.getElementById('root'));
